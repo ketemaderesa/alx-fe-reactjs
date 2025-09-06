@@ -1,8 +1,6 @@
 import { useState } from 'react';
-
 function Counter() {
   const [count, setCount] = useState(0);
-
   return (
     <div style={{ padding: '20px' }}>
       <p>Current Count: {count}</p>
