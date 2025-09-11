@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
+import SearchBar from './components/SearchBar';
 import './index.css';
 
 function App() {
@@ -16,7 +17,12 @@ function App() {
         <h1>Recipe Sharing App</h1>
         
         <Routes>
-          <Route path="/" element={<RecipeList />} />
+          <Route path="/" element={
+            <>
+              <SearchBar />
+              <RecipeList />
+            </>
+          } />
           <Route path="/add" element={<AddRecipeForm />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
         </Routes>
