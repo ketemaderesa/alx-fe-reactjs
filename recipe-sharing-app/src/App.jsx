@@ -1,10 +1,9 @@
-import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
-import './index.css';
+import RecipeList from './components/RecipeList';
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <h1>Recipe Sharing App</h1>
       <AddRecipeForm />
       <RecipeList />
