@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 
 export default function RegistrationForm() {
-  const [form, setForm] = useState({ username: "", email: "", password: "" });
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(null);
 
-  // Simple validation
   const validate = () => {
     const e = {};
     if (!form.username.trim()) e.username = "Username required";
@@ -22,75 +26,59 @@ export default function RegistrationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus(null);
     if (!validate()) return;
-
     try {
-      // Simulate API call delay
-      await new Promise((res) => setTimeout(res, 800));
-      setStatus({ ok: true, msg: "Registered (mock)" });
-      setForm({ username: "", email: "", password: "" }); // reset
-    } catch (err) {
+      await new Promise((res) => setTimeout(res, 500));
+      setStatus({ ok: true, msg: "Registered successfully (mock API)" });
+      setForm({ username: "", email: "", password: "" });
+    } catch {
       setStatus({ ok: false, msg: "Registration failed" });
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Controlled Registration Form</h2>
+      <h2>User Registration (Controlled)</h2>
 
-      {/* Username Field */}
       <div>
-        <label>Username</label>
+        <label>Username:</label>
         <input
           name="username"
           value={form.username}
           onChange={handleChange}
+          placeholder="Enter username"
         />
-        {errors.username && (
-          <div style={{ color: "red" }}>{errors.username}</div>
-        )}
+        {errors.username && <p style={{ color: "red" }}>{errors.username}</p>}
       </div>
 
-      {/* Email Field */}
       <div>
-        <label>Email</label>
+        <label>Email:</label>
         <input
           name="email"
           type="email"
           value={form.email}
           onChange={handleChange}
+          placeholder="Enter email"
         />
-        {errors.email && (
-          <div style={{ color: "red" }}>{errors.email}</div>
-        )}
+        {errors.email && <p style={{ color: "red" }}>{errors.email}</p>}
       </div>
 
-      {/* Password Field */}
       <div>
-        <label>Password</label>
+        <label>Password:</label>
         <input
           name="password"
           type="password"
           value={form.password}
           onChange={handleChange}
+          placeholder="Enter password"
         />
-        {errors.password && (
-          <div style={{ color: "red" }}>{errors.password}</div>
-        )}
+        {errors.password && <p style={{ color: "red" }}>{errors.password}</p>}
       </div>
 
       <button type="submit">Register</button>
 
       {status && (
-        <div
-          style={{
-            marginTop: 8,
-            color: status.ok ? "green" : "red",
-          }}
-        >
-          {status.msg}
-        </div>
+        <p style={{ color: status.ok ? "green" : "red" }}>{status.msg}</p>
       )}
     </form>
   );
