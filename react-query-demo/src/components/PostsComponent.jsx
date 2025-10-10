@@ -2,13 +2,14 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
-// Named fetch function
-const fetchPosts = async () => {
-  const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
-  return res.data;
+// Named fetch function (required)
+export const fetchPosts = async () => {
+  const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  return response.data;
 };
 
 export default function PostsComponent() {
+  // useQuery with named function and isError variable
   const { data, isLoading, isError, refetch } = useQuery("posts", fetchPosts);
 
   if (isLoading) return <p>Loading posts...</p>;
@@ -19,7 +20,7 @@ export default function PostsComponent() {
       <h2>Posts</h2>
       <button onClick={() => refetch()}>Refetch Posts</button>
       <ul>
-        {data.map((post) => (
+        {data.map(post => (
           <li key={post.id}>
             <strong>{post.title}</strong>: {post.body}
           </li>
