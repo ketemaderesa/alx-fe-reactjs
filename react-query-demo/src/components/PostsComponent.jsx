@@ -9,8 +9,18 @@ export const fetchPosts = async () => {
 };
 
 export default function PostsComponent() {
-  // Destructure both isError and error to satisfy ALX
-  const { data, isLoading, isError, error, refetch } = useQuery("posts", fetchPosts);
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = useQuery("posts", fetchPosts, {
+    cacheTime: 1000 * 60 * 5,           // cache for 5 minutes
+    staleTime: 1000 * 60,               // data considered fresh for 1 minute
+    refetchOnWindowFocus: false,        // disable automatic refetch on window focus
+    keepPreviousData: true,             // keep old data while fetching new
+  });
 
   if (isLoading) return <p>Loading posts...</p>;
   if (isError) return <p>Error loading posts: {error.message}</p>;
@@ -20,7 +30,7 @@ export default function PostsComponent() {
       <h2>Posts</h2>
       <button onClick={() => refetch()}>Refetch Posts</button>
       <ul>
-        {data.map(post => (
+        {data.map((post) => (
           <li key={post.id}>
             <strong>{post.title}</strong>: {post.body}
           </li>
