@@ -1,12 +1,11 @@
 import React from "react";
-import FormikForm from "./components/formikForm"; // keep this, remove the next line
+import PostsComponent from "./PostsComponent";
 
-function App() {
+export default function App() {
   return (
     <div>
-      <FormikForm />
+      <h1>React Query Demo</h1>
+      <PostsComponent />
     </div>
   );
 }
-
-export default App;
