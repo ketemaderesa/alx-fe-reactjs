@@ -1,16 +1,55 @@
-# React + Vite
+React Todo App
+Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Todo List application built with React. This project demonstrates creating, implementing, and testing a fully functional Todo List component. Users can add, delete, and toggle todo items, while tests verify each functionality using Jest and React Testing Library.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Display a list of todos from a static array.
 
-## React Compiler
+Add new todos using a form.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Toggle todos between completed and not completed.
 
-## Expanding the ESLint configuration
+Delete todos individually.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Fully tested with Jest and React Testing Library.
+
+Setup
+
+Clone the repository:
+
+git clone https://github.com/alx-fe-reactjs/react-todo.git
+cd react-todo
+
+
+Install dependencies:
+
+npm install
+
+
+Run the app:
+
+npm start
+
+Testing
+
+Ensure test dependencies are installed:
+
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+
+
+Run tests:
+
+npm test
+
+
+Tests cover:
+
+Rendering initial todos.
+
+Adding a new todo.
+
+Toggling a todo’s completion status.
+
+Deleting a todo.
