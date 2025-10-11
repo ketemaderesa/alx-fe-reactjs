@@ -14,8 +14,18 @@ export default function Profile() {
         <Link to="settings">Profile Settings</Link>
       </nav>
 
+      <button
+        onClick={() => {
+          localStorage.removeItem('user')
+          window.location.href = '/login'
+        }}
+      >
+        Logout
+      </button>
+
       {/* ✅ Nested Routes inside Profile */}
       <Routes>
+        <Route index element={<ProfileDetails />} />
         <Route path="details" element={<ProfileDetails />} />
         <Route path="settings" element={<ProfileSettings />} />
       </Routes>
