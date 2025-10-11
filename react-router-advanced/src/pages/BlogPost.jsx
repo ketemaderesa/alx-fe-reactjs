@@ -1,8 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 
-function BlogPost() {
-  const { id } = useParams();
-  return <div>Blog Post ID: {id}</div>;
+export default function BlogPost() {
+  const { postId } = useParams()
+  return <h3>Blog Post ID: {postId}</h3>
 }
-
-export default BlogPost;
