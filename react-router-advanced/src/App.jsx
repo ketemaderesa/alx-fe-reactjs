@@ -9,6 +9,7 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Login from './pages/Login'
 import ProtectedRoute from './components/ProtectedRoute'
+import Profile from './components/Profile'
 
 export default function App() {
   return (
