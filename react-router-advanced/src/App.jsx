@@ -7,8 +7,6 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Login from './pages/Login'
 import Profile from './components/Profile'
-import ProfileDetails from './components/ProfileDetails'
-import ProfileSettings from './components/ProfileSettings'
 import ProtectedRoute from './components/ProtectedRoute'
 
 export default function App() {
@@ -29,7 +27,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
 
-          {/* Protected nested route */}
+          {/* Protected parent route */}
           <Route
             path="/profile/*"
             element={
@@ -37,13 +35,12 @@ export default function App() {
                 <Profile />
               </ProtectedRoute>
             }
-          >
-            <Route path="details" element={<ProfileDetails />} />
-            <Route path="settings" element={<ProfileSettings />} />
-          </Route>
+          />
 
+          {/* Dynamic routes */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:postId" element={<BlogPost />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
