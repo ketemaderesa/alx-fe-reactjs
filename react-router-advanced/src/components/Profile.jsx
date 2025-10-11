@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 
 export default function Profile() {
@@ -9,7 +10,8 @@ export default function Profile() {
         <Link to="settings">Profile Settings</Link>
       </nav>
       <hr />
-      <Outlet /> {/* Nested routes render here */}
+      {/* Nested routes render below */}
+      <Outlet />
     </div>
   )
 }
