@@ -24,10 +24,11 @@ export default function App() {
         </nav>
 
         <Routes>
+          {/* Basic routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
 
-          {/* Protected parent route */}
+          {/* Protected nested route */}
           <Route
             path="/profile/*"
             element={
@@ -37,10 +38,11 @@ export default function App() {
             }
           />
 
-          {/* Dynamic routes */}
+          {/* ✅ Dynamic route uses :id (as required) */}
           <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:postId" element={<BlogPost />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
 
+          {/* Login + Fallback */}
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
